@@ -1,0 +1,7 @@
+.idea/
+
+*.csv
+
+*.pyc
+fang/fang/spiders/*.pyc
+*.log
