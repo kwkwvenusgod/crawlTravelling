@@ -7,7 +7,7 @@ class CrawlmafengwoSpider(scrapy.Spider):
 
     name = 'crawlmafengwo'
     # allowed_domains = ['https://www.mafengwo.cn/sales/0-0-0-0-0-0-0-0.html?group=4']
-    start_urls = ['http://https://www.mafengwo.cn/sales/0-0-0-0-0-0-0-0.html?group=4/']
+    start_urls = ['http://www.mafengwo.cn/sales/0-0-0-0-0-0-0-0.html?group=4/']
 
     def __init__(self):
         self.driver = webdriver.Firefox()
@@ -17,5 +17,7 @@ class CrawlmafengwoSpider(scrapy.Spider):
     def parse(self, response):
         days_filter = response.xpath('//div[@class="filter-bd"]/dl[2]/dd/ul/li').extract()
 
-
+        self.driver.get('http://www.mafengwo.cn/sales/0-0-0-0-0-0-0-0.html?group=4/')
+        extend_condition = self.driver.find_element_by_css_selector('.filter-toggle a')
+        extend_condition.click()
         pass
